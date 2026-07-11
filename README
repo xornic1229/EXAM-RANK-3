@@ -1,0 +1,526 @@
+# 42 Madrid — Exam Rank 03 Python
+
+Repositorio de preparación para el **Exam Rank 03 de Python de 42 Madrid**.
+
+El examen está formado por seis ejercicios. En cada posición puede aparecer una de varias funciones posibles. Este repositorio reúne las soluciones y casos de prueba de todas las funciones estudiadas.
+
+---
+
+## Contenido del repositorio
+
+### Ejercicio 1
+
+#### `py_bracket_validator`
+
+Comprueba si los paréntesis, corchetes y llaves de una cadena están correctamente emparejados y anidados.
+
+Tipos admitidos:
+
+```text
+()
+[]
+{}
+```
+
+Ejemplos:
+
+```python
+bracket_validator("()")          # True
+bracket_validator("([{}])")      # True
+bracket_validator("([)]")        # False
+bracket_validator("hello")       # True
+```
+
+Conceptos utilizados:
+
+* Pilas.
+* `append()`.
+* `pop()`.
+* Diccionarios.
+* Validación de apertura y cierre.
+
+---
+
+#### `py_cryptic_sorter`
+
+Ordena una lista de cadenas utilizando varios criterios:
+
+1. Longitud ascendente.
+2. Orden lexicográfico sin distinguir mayúsculas y minúsculas.
+3. Número de vocales.
+4. Cadena original como criterio de desempate.
+
+Ejemplo:
+
+```python
+cryptic_sorter(["apple", "cat", "banana", "dog"])
+# ["cat", "dog", "apple", "banana"]
+```
+
+Conceptos utilizados:
+
+* `sorted()`.
+* Funciones auxiliares.
+* Claves de ordenación.
+* Tuplas como criterios múltiples.
+* Conteo de vocales.
+
+---
+
+## Ejercicio 2
+
+### `py_echo_validator`
+
+Comprueba si una cadena es un palíndromo.
+
+La comparación:
+
+* Ignora mayúsculas y minúsculas.
+* Ignora espacios.
+* Ignora caracteres no alfabéticos.
+* Devuelve `False` para una cadena vacía.
+
+Ejemplos:
+
+```python
+echo_validator("racecar")                        # True
+echo_validator("A man a plan a canal Panama")    # True
+echo_validator("race a car")                     # False
+echo_validator("")                               # False
+```
+
+Conceptos utilizados:
+
+* Limpieza de cadenas.
+* `isalpha()`.
+* `lower()`.
+* Inversión mediante slicing.
+
+---
+
+### `py_mirror_matrix`
+
+Invierte horizontalmente cada fila de una matriz.
+
+El orden de las filas se conserva.
+
+Ejemplo:
+
+```python
+mirror_matrix([
+    [1, 2, 3],
+    [4, 5, 6]
+])
+
+# [
+#     [3, 2, 1],
+#     [6, 5, 4]
+# ]
+```
+
+Conceptos utilizados:
+
+* Listas bidimensionales.
+* Recorrido por filas.
+* Slicing.
+* Creación de una nueva matriz.
+
+---
+
+## Ejercicio 3
+
+### `py_hidenp`
+
+Comprueba si una cadena aparece como subsecuencia de otra.
+
+Los caracteres deben aparecer en el mismo orden, aunque no tienen que estar juntos.
+
+Ejemplos:
+
+```python
+hidenp("abc", "a1b2c")      # True
+hidenp("abc", "acb")        # False
+hidenp("", "anything")      # True
+```
+
+Conceptos utilizados:
+
+* Recorrido de cadenas.
+* Índices.
+* Subsecuencias.
+* Comparación sensible a mayúsculas y minúsculas.
+
+---
+
+### `py_inter`
+
+Devuelve los caracteres que aparecen en dos cadenas.
+
+Los caracteres:
+
+* No se repiten.
+* Mantienen el orden de aparición de la primera cadena.
+* Distinguen entre mayúsculas y minúsculas.
+
+Ejemplos:
+
+```python
+inter("hello", "world")     # "lo"
+inter("banana", "band")     # "ban"
+inter("abcabc", "bc")       # "bc"
+```
+
+Conceptos utilizados:
+
+* Recorrido de cadenas.
+* Operador `in`.
+* Eliminación de duplicados.
+* Construcción progresiva de resultados.
+
+---
+
+### `py_number_base_converter`
+
+Convierte un número entre bases numéricas.
+
+Admite bases entre `2` y `36`.
+
+Caracteres utilizados:
+
+```text
+0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ
+```
+
+Ejemplos:
+
+```python
+number_base_converter("1010", 2, 10)    # "10"
+number_base_converter("FF", 16, 10)     # "255"
+number_base_converter("255", 10, 16)    # "FF"
+number_base_converter("Z", 36, 10)      # "35"
+```
+
+Devuelve:
+
+```text
+ERROR
+```
+
+cuando:
+
+* La base de origen no está entre 2 y 36.
+* La base de destino no está entre 2 y 36.
+* El número contiene caracteres inválidos para su base.
+
+Conceptos utilizados:
+
+* Conversión a decimal.
+* Divisiones sucesivas.
+* Módulo.
+* División entera.
+* Validación de caracteres.
+* Bases numéricas.
+
+---
+
+### `py_pattern_tracker`
+
+Cuenta pares consecutivos de dígitos donde el segundo dígito es exactamente uno mayor que el primero.
+
+Ejemplos:
+
+```python
+pattern_tracker("123")          # 2
+pattern_tracker("12a34")        # 2
+pattern_tracker("01234567")     # 7
+pattern_tracker("987654321")    # 0
+```
+
+El par:
+
+```text
+9 → 0
+```
+
+no se considera válido.
+
+Conceptos utilizados:
+
+* Índices.
+* Comparación de posiciones consecutivas.
+* `isdigit()`.
+* Conversión con `int()`.
+
+---
+
+## Ejercicio 4
+
+### `py_anagram`
+
+Comprueba si dos cadenas son anagramas.
+
+La comparación:
+
+* Ignora mayúsculas y minúsculas.
+* Ignora espacios.
+* Tiene en cuenta la cantidad exacta de cada letra.
+
+Ejemplos:
+
+```python
+anagram("listen", "silent")            # True
+anagram("Triangle", "Integral")        # True
+anagram("Dormitory", "Dirty Room")     # True
+anagram("abc", "abcc")                 # False
+```
+
+Conceptos utilizados:
+
+* Limpieza de cadenas.
+* `replace()`.
+* `lower()`.
+* `sorted()`.
+
+---
+
+### `py_shadow_merge`
+
+Fusiona dos listas ordenadas en una única lista ordenada.
+
+Los elementos repetidos se conservan.
+
+Ejemplos:
+
+```python
+shadow_merge([1, 3, 5], [2, 4, 6])
+# [1, 2, 3, 4, 5, 6]
+
+shadow_merge([1, 1, 2], [1, 3, 3])
+# [1, 1, 1, 2, 3, 3]
+```
+
+Conceptos utilizados:
+
+* Concatenación de listas.
+* Ordenación.
+* Conservación de duplicados.
+
+---
+
+### `py_string_permutation_checker`
+
+Comprueba si dos cadenas son permutaciones.
+
+A diferencia de `py_anagram`:
+
+* Distingue mayúsculas y minúsculas.
+* Los espacios cuentan.
+* La puntuación cuenta.
+* Todos los caracteres se consideran normales.
+
+Ejemplos:
+
+```python
+string_permutation_checker("abc", "bca")                # True
+string_permutation_checker("Abc", "abc")                # False
+string_permutation_checker("a gentleman", "elegant man") # True
+```
+
+Conceptos utilizados:
+
+* Frecuencia de caracteres.
+* Ordenación de cadenas.
+* Comparación exacta.
+
+---
+
+## Ejercicio 5
+
+### `py_string_sculptor`
+
+Alterna letras minúsculas y mayúsculas dentro de una cadena.
+
+La primera letra debe aparecer en minúscula, la segunda en mayúscula, la tercera en minúscula y así sucesivamente.
+
+Los caracteres no alfabéticos:
+
+* Se mantienen sin cambios.
+* No afectan a la alternancia.
+
+Ejemplos:
+
+```python
+string_sculptor("hello")        # "hElLo"
+string_sculptor("abc123def")    # "aBc123DeF"
+string_sculptor("Python3.9!")   # "pYtHoN3.9!"
+```
+
+Conceptos utilizados:
+
+* Contadores.
+* Paridad con `% 2`.
+* `isalpha()`.
+* `lower()`.
+* `upper()`.
+
+---
+
+### `py_twist_sequence`
+
+Rota una lista hacia la derecha una cantidad determinada de posiciones.
+
+Los últimos `k` elementos pasan al principio.
+
+Ejemplos:
+
+```python
+twist_sequence([1, 2, 3, 4, 5], 2)
+# [4, 5, 1, 2, 3]
+
+twist_sequence([1, 2, 3], 5)
+# [2, 3, 1]
+```
+
+Cuando `k` es mayor que la longitud de la lista, se utiliza:
+
+```python
+k % len(arr)
+```
+
+Conceptos utilizados:
+
+* Slicing.
+* Módulo.
+* Rotación de listas.
+* Gestión de listas vacías.
+
+---
+
+## Ejercicio 6
+
+### `py_whisper_cipher`
+
+Implementa un cifrado César.
+
+Cada letra se desplaza una cantidad determinada de posiciones en el alfabeto.
+
+Ejemplos:
+
+```python
+whisper_cipher("hello", 3)         # "khoor"
+whisper_cipher("xyz", 3)           # "abc"
+whisper_cipher("abc", -3)          # "xyz"
+whisper_cipher("Hello World!", 1)  # "Ifmmp Xpsme!"
+```
+
+La función:
+
+* Conserva mayúsculas y minúsculas.
+* No modifica números, espacios ni signos.
+* Admite desplazamientos positivos y negativos.
+* Vuelve al comienzo del alfabeto al superar la `z`.
+
+Conceptos utilizados:
+
+* Códigos ASCII.
+* `ord()`.
+* `chr()`.
+* Módulo `% 26`.
+* Cifrado César.
+
+---
+
+## Estructura sugerida
+
+```text
+42-exam-rank-03-python/
+├── exercise_01/
+│   ├── py_bracket_validator.py
+│   └── py_cryptic_sorter.py
+├── exercise_02/
+│   ├── py_echo_validator.py
+│   └── py_mirror_matrix.py
+├── exercise_03/
+│   ├── py_hidenp.py
+│   ├── py_inter.py
+│   ├── py_number_base_converter.py
+│   └── py_pattern_tracker.py
+├── exercise_04/
+│   ├── py_anagram.py
+│   ├── py_shadow_merge.py
+│   └── py_string_permutation_checker.py
+├── exercise_05/
+│   ├── py_string_sculptor.py
+│   └── py_twist_sequence.py
+├── exercise_06/
+│   └── py_whisper_cipher.py
+└── README.md
+```
+
+---
+
+## Ejecución
+
+Las funciones pueden probarse importándolas desde otro archivo:
+
+```python
+from exercise_03.py_inter import inter
+
+print(inter("hello", "world"))
+```
+
+También se pueden añadir pruebas directamente al final de cada archivo:
+
+```python
+if __name__ == "__main__":
+    print(inter("hello", "world"))
+    print(inter("banana", "band"))
+    print(inter("abc", "xyz"))
+```
+
+Para ejecutar un archivo:
+
+```bash
+python3 exercise_03/py_inter.py
+```
+
+---
+
+## Casos que deben comprobarse
+
+En cada función conviene probar:
+
+* Entradas vacías.
+* Un único elemento.
+* Elementos repetidos.
+* Mayúsculas y minúsculas.
+* Espacios.
+* Caracteres especiales.
+* Valores límite.
+* Entradas ya ordenadas.
+* Entradas completamente desordenadas.
+* Casos válidos e inválidos.
+
+---
+
+## Objetivo de estudio
+
+El repositorio cubre principalmente estos bloques de Python:
+
+```text
+Cadenas
+Listas
+Matrices
+Índices
+Contadores
+Pilas
+Diccionarios
+Ordenación
+Slicing
+Conversión de bases
+Validación de caracteres
+Códigos ASCII
+Módulo y división entera
+```
+
+El objetivo final es poder resolver cada función desde cero durante el examen, identificando rápidamente el patrón necesario para cada tipo de problema.
