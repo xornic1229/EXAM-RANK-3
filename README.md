@@ -35,7 +35,7 @@ exam3/
 │   └── twist_sequence.py
 ├── ex6/
 │   └── whisper_checker.py
-└── README
+└── README.md
 ```
 
 ## Ejercicios
